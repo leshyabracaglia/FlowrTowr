@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>491397416554-68q5v6ogb4ierp3ckqejha651plsku3u.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.491397416554-68q5v6ogb4ierp3ckqejha651plsku3u</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA7YmmX1zGcoc1MAIO_9ngWCINGLaiH1xI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>491397416554</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.PersephonePlanters</string>
+	<key>PROJECT_ID</key>
+	<string>persephone-1629908238721</string>
+	<key>STORAGE_BUCKET</key>
+	<string>persephone-1629908238721.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:491397416554:ios:013a8909f5fd07db43ac13</string>
+	<key>DATABASE_URL</key>
+	<string>https://persephone-1629908238721-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
