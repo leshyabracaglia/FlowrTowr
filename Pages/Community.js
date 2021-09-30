@@ -1,5 +1,6 @@
 import React, { useImperativeHandle, useState, useEffect } from 'react';
 import Header from "../Components/Header";
+import CommunityPost from '../Components/CommunityPost';
 import { RFPercentage } from "react-native-responsive-fontsize";
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
@@ -18,29 +19,41 @@ import {
 const Community = ({ navigation }) => {
 
   const [message, setMessage] = useState("");
-  const [querySnapshot, setQuerySnapshot] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    setQuerySnapshot([]);
     firestore().collection('community')
     .get()
-    .then(_querySnapshot => {
-      console.log('Total posts: ', _querySnapshot.size);
-      //console.log(_querySnapshot);
-      //setQuerySnapshot(_querySnapshot);
-      _querySnapshot.forEach(documentSnapshot => {
-        console.log(documentSnapshot);
-        let snap = [...querySnapshot];
-        console.log
-        snap.push(documentSnapshot);
-        setQuerySnapshot(snap);
-        console.log(querySnapshot);
-      })
+    .then(querySnapshot => {
+      console.log('Total posts: ', querySnapshot.size);
+      let postHolder = []
+      querySnapshot.forEach(documentSnapshot => {
+        postHolder.push(documentSnapshot);
+      });
+      return postHolder
     })
     .catch((error) => {
       console.log(error);
+    }).then((postHolder) => {
+      setPosts(postHolder);
     })
   }, [])
+
+  /*
+  function onResult(QuerySnapshot) {
+    console.log("query snapshot:");
+    console.log(QuerySnapshot);
+    let postHolder = [...posts];
+    postHolder.push(QuerySnapshot);
+    setPosts(postHolder);
+  }
+  
+  function onError(error) {
+    console.error(error);
+  }
+  */
+  
+  //firestore().collection('community').onSnapshot(onResult, onError);
   
   function post(){
 
@@ -82,17 +95,11 @@ const Community = ({ navigation }) => {
             </View>
 
             {
-              querySnapshot.map(documentSnapshot => {
+              posts.map(documentSnapshot => {
                 console.log(documentSnapshot);
                 return(
-                  <View style={{width:"90%", paddingLeft:"10%", paddingTop:"10%"}}>
-                    <View style={{backgroundColor:"rgb(239, 239, 239)", padding:"3%", borderTopRightRadius:20, height:50}}>
-                      <Text style={styles.name}>{documentSnapshot.data().firstName}</Text>
-                    </View>
-                    <View style={{backgroundColor:"rgb(245, 245, 245)", padding:"7%", borderBottomLeftRadius:20, flexDirection:"row"}}>
-                      <Text style={{color: "black"}}>{documentSnapshot.data().post}</Text>
-                    </View>
-                  </View>
+                  <CommunityPost postData={documentSnapshot.data()}>
+                  </CommunityPost>
                 )
             
               })
@@ -111,8 +118,8 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     background: {
-        backgroundColor: "rgb(222, 224, 223)",
-        height: "100%"
+      backgroundColor: "rgb(191, 203, 194)",
+        height: "100%",
     },
     button: {
       backgroundColor:"black",

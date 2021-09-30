@@ -38,7 +38,6 @@ const PlantStatus = () => {
 
                 <View style={styles.statusItem}>
                     <Image source={require("../images/humidity.png")} style={styles.image}/>
-                    <Text style={styles.textTop}>Ambient</Text>
                     <Text style={styles.textBottom}>Humidity</Text>
                     <View style={styles.valueEditorBox}>
                         <ValueEditor value={humidity} 
@@ -52,7 +51,6 @@ const PlantStatus = () => {
 
                 <View style={styles.statusItem}>
                     <Image source={require("../images/temperature.png")} style={styles.image}/>
-                    <Text style={styles.textTop}>Ambient</Text>
                     <Text style={styles.textBottom}>Temperature</Text>
                     <View style={styles.valueEditorBox}>
                         <ValueEditor value={temp} 
@@ -67,7 +65,6 @@ const PlantStatus = () => {
                 <View style={styles.statusItem}>
                     <Image source={require("../images/ph.png")} style={styles.image}/>
                     <Text style={styles.textTop}>Soil pH</Text>
-                    <Text style={styles.textBottom}>Level</Text>
                     <View style={styles.valueEditorBox}>
                         <ValueEditor value={ph} 
                                      color="green" 
@@ -98,7 +95,7 @@ const styles = StyleSheet.create({
     },
     textTop: {
         fontSize:RFPercentage(3), 
-        paddingTop:"15%",
+        paddingTop:"10%",
         fontFamily: "FuturaStd-Condensed"
     },
     textBottom: {
@@ -108,12 +105,12 @@ const styles = StyleSheet.create({
     },
     valueEditorBox: {
         flexDirection:"row", 
-        marginTop:"10%", 
+        marginTop:"8%", 
         alignItems:"center"
     },
     image: {
-        height:49, 
-        width: 49, 
+        height:43, 
+        width: 43, 
         alignItems:"center"
     }
   });

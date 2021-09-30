@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, TextInput, Pressable, View, ImageBackground, Button, ScrollView } from 'react-native';
+
 import { RFPercentage } from "react-native-responsive-fontsize";
-import { firebase } from '@react-native-firebase/app';
 import { launchImageLibrary } from 'react-native-image-picker';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
@@ -8,17 +9,6 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const clientId = '803910078327-rt4aglmhls77n7gmjtr0gj821eo00avd.apps.googleusercontent.com';
-
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  Pressable,
-  View,
-  ImageBackground,
-  Button,
-  ScrollView
-} from 'react-native';
 
 
 const RegisterPage = ({ route, navigation }) => {

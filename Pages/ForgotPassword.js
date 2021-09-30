@@ -1,43 +1,28 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, ImageBackground, Alert, Pressable } from 'react-native';
+import React, { useState, useEffect } from 'react';
 
 import { RFPercentage } from "react-native-responsive-fontsize";
 import auth from '@react-native-firebase/auth';
+import { StyleSheet, Text, TextInput, View, ImageBackground, Alert } from 'react-native';
 
 import SubmitButton from '../Components/SubmitButton';
-import PasswordField from "../Components/Inputs/Password";
+import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
 
-const LoginPage = ({ navigation }) => {
+const ForgotPassword = ({ navigation }) => {
 
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
 
-    const onLoginPress = () => {
+    const onEmailSubmit = () => {
         auth()
-        .signInWithEmailAndPassword(email, password)
-        .then(() =>{
-            setEmail("");
-            setPassword("");
-            navigation.navigate('Home');  
+        .sendPasswordResetEmail(email)
+        .then((res) =>{
+            Alert.alert("Password Reset link sent to " + email, 
+                ("Please check your email"),
+                [
+                    { text: "OK", onPress: () => navigation.navigate("Login") },
+                ])
         }).catch((error)=>{
-            setPassword("");
-            if(error.code === 'auth/wrong-password'){
-                Alert.alert("Incorrect Password", 
-                ("Please try again or reset password."),
-                [
-                    { text: "OK" },
-                ])
-            }else if(error.code === 'auth/network-request-failed'){
-                Alert.alert("Network Error", 
-                ("Please try again."),
-                [
-                    { text: "OK", onPress: () => console.log("OK Pressed") },
-                    { text: "Reset Password", onPress: navigation.push("Forgot") },
-                ])
-            }else{
-                alert(error);
-            }
+            alert(error);
         });
     }
 
@@ -48,15 +33,11 @@ const LoginPage = ({ navigation }) => {
         >
         <View style={{height:"100%", width:"100%", backgroundColor:"rgba(0, 0, 0, 0.4)"}}>
             <View style={styles.logoBox}>
-                <Text style={styles.logo}>Login</Text>
+                <Text style={styles.logo}>Password Recovery</Text>
             </View>
             <View style={styles.loginBox}>
                 <TextInput placeholder="Email" placeholderTextColor="white" style={styles.textInput} onChangeText={setEmail}></TextInput>
-                <PasswordField setPassword={() => setPassword()}/>
-                <SubmitButton onSubmit={onLoginPress}/>
-                <Pressable onPress={() => navigation.push("Forgot")}>
-                    <Text style={styles.forgot}>Forgot Password?</Text>
-                </Pressable>
+                <SubmitButton onSubmit={onEmailSubmit}/>
             </View>
         </View>
         </ImageBackground>
@@ -72,11 +53,11 @@ const styles = StyleSheet.create({
     logo: {
         textAlign: "center", 
         color: "white",
-        fontSize: RFPercentage(11),
+        fontSize: RFPercentage(7),
         fontFamily: 'MinionPro-CnCapt'
     },
     logoBox: {
-        marginTop:"30%"
+        marginTop:"50%"
     },
     loginBox: {
         marginLeft: "4%",
@@ -103,4 +84,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default LoginPage;
+export default ForgotPassword;

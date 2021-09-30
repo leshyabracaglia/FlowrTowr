@@ -55,15 +55,15 @@ const styles = StyleSheet.create({
     navItem: {
         width:"100%",
         height:"100%",
-        paddingLeft: "10%",
+        paddingLeft: "11%",
         paddingRight: "7%",
-        paddingTop: "10%",
+        paddingTop: "12%",
         alignItems:"center",
         margin:"2.3%"
     },
     icon: {
-        height:40, 
-        width: 40, 
+        height:32, 
+        width: 32, 
         alignItems:"center"
     }
   });
