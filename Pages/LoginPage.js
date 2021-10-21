@@ -14,6 +14,8 @@ const LoginPage = ({ navigation }) => {
     const [password, setPassword] = useState("");
 
     const onLoginPress = () => {
+        console.log(email);
+        console.log(password);
         auth()
         .signInWithEmailAndPassword(email, password)
         .then(() =>{
@@ -51,8 +53,8 @@ const LoginPage = ({ navigation }) => {
                 <Text style={styles.logo}>Login</Text>
             </View>
             <View style={styles.loginBox}>
-                <TextInput placeholder="Email" placeholderTextColor="white" style={styles.textInput} onChangeText={setEmail}></TextInput>
-                <PasswordField setPassword={() => setPassword()}/>
+                <TextInput placeholder="Email" placeholderTextColor="white" keyboardType="email-address" style={styles.textInput} onChangeText={setEmail}></TextInput>
+                <PasswordField setPassword={(x) => setPassword(x)}/>
                 <SubmitButton onSubmit={onLoginPress}/>
                 <Pressable onPress={() => navigation.push("Forgot")}>
                     <Text style={styles.forgot}>Forgot Password?</Text>
@@ -81,6 +83,7 @@ const styles = StyleSheet.create({
     loginBox: {
         marginLeft: "4%",
         marginRight: "4%",
+        marginTop: "5%",
         padding: "5%",
         height:"30%",
     },
@@ -89,8 +92,8 @@ const styles = StyleSheet.create({
         borderBottomColor: "white",
         borderBottomWidth: 1.5,
         color: "white",
-        height: "25%",
-        fontSize: RFPercentage(3.5),
+        height: "30%",
+        fontSize: RFPercentage(3.7),
         paddingLeft: "5%",
         fontFamily: "FuturaStd-Condensed"
     },
@@ -98,7 +101,7 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: RFPercentage(3.6),
         textAlign: "center",
-        paddingTop:"7%",
+        paddingTop:"9%",
         fontFamily: "FuturaStd-Condensed"
     }
   });

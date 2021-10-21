@@ -46,8 +46,14 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>To share photos of your plants with the Persephone Community</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To Share videos of your plants with the Persephone Community</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To share with the Persephone Community</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>FuturaStd-Condensed.otf</string>

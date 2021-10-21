@@ -32,17 +32,17 @@ const SubmitButton = ({ onSubmit }) => {
 const styles = StyleSheet.create({
     submitBox: {
         width: "100%",
-        marginTop: "10%",
+        marginTop: "15%",
         borderRadius: 5,
-        height:"25%",
+        height:60,
     },
     submitText: {
         fontFamily: 'MinionPro-CnCapt',
         color:"black", 
-        fontSize: RFPercentage(3.5), 
+        fontSize: RFPercentage(3.7), 
         textAlign:"center", 
         fontFamily:'FuturaStd-Condensed', 
-        marginTop:"5%"
+        marginTop:"6%",
     }
 });
 

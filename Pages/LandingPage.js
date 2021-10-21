@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     StyleSheet,
     Text,
@@ -22,27 +22,30 @@ const LandingPage = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const [newAccount, setNewAccount] = useState(false);
+
     console.log("current user");
     console.log(auth().currentUser);
     
     // If user is already logged in (persistent), no need to log in
     // Grab user info and navigate to the home screen
-    if(auth().currentUser !== null && Object.keys(auth().currentUser).length > 0){
-        let loggedInUser = auth().currentUser;
-        try{
-            data = {
-                firstName: loggedInUser.userInfo.user.givenName,
-                photo: loggedInUser.userInfo.user.photo, 
+    useEffect(() => {
+        if(auth().currentUser !== null && Object.keys(auth().currentUser).length > 0 && !newAccount){
+            let loggedInUser = auth().currentUser;
+            try{
+                data = {
+                    firstName: loggedInUser.userInfo.user.givenName,
+                    photo: loggedInUser.userInfo.user.photo, 
+                }
+            }catch{
+                data = {
+                    firstName: loggedInUser.displayName,
+                    photo: null,
+                }
             }
-        }catch{
-            data = {
-                firstName: loggedInUser.displayName,
-                photo: null,
-            }
+            navigation.navigate("Home", data);
         }
-        navigation.navigate("Home", data);
-    }
-
+    })
 
     const onRegisterPress = () => {
         console.log(email);
@@ -52,13 +55,14 @@ const LandingPage = ({ navigation }) => {
         auth()
         .createUserWithEmailAndPassword(email, password)
         .then((_loggedInUser) =>{
+            setNewAccount(true);
             return _loggedInUser
         }).catch((error)=>{
             if (error.code === 'auth/email-already-in-use'){
                 Alert.alert("Email already in use", 
                 ("There is already an account associated with " + email + ".\nPlease login or use a new email."),
                 [
-                    { text: "OK", onPress: () => console.log("OK Pressed") },
+                    { text: "Ok", onPress: () => console.log("OK Pressed") },
                     { text: "Login", onPress: () => navigation.navigate("Login") },
                 ])
             }else{
@@ -73,19 +77,23 @@ const LandingPage = ({ navigation }) => {
                 id: uid,
                 email: email,
             };
+            console.log(data);
             firestore().collection('users')
             .doc(uid)
             .set(data)
             .then(() => {
                 // Navigate to registration form w uid and email
+                console.log("hihello");
                 setEmail("");
                 setPassword("");
-                navigation.navigate('Register', {user: data})
+                console.log("about to navigate to register")
             })
             .catch((error) => {
                 // Alert if navigation/data error
                 console.log("second catch error");
                 alert(error)
+            }).then(() => {
+                navigation.navigate('Register', {user: data})
             });
         })
     };
@@ -105,7 +113,7 @@ const LandingPage = ({ navigation }) => {
             <View style={styles.registerBox}>
                 <Text style={styles.registerText}>Register</Text>
                 <TextInput placeholder="Email" placeholderTextColor="white" style={styles.textInput} onChangeText={setEmail}></TextInput>
-                <PasswordField setPassword={() => setPassword()}/>
+                <PasswordField setPassword={(x) => setPassword(x)}/>
                 <SubmitButton onSubmit={onRegisterPress}/>
             </View>
                 

@@ -14,19 +14,18 @@ import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
 const WaterIcon = () => {
 
-    let waterOff = require("../images/water-tap-black.png");
-    let waterOn = require("../images/water-tap.png");
+    let waterOff = require("../../images/water-tap-black.png");
+    let waterOn = require("../../images/water-tap.png");
 
     const [waterColor, setWaterColor] = useState("white");
     const [waterImg, setWaterImg] = useState(waterOff);
 
     const styles = StyleSheet.create({
         waterButton: {
-            height:"70%",
-            width: "25%",
+            height:"75%",
+            width: "60%",
             backgroundColor: waterColor,
-            paddingTop: "4%",
-            marginLeft:"10%",
+            paddingTop: "6%",
             alignItems:"center",
             borderRadius: 15,
             shadowOffset: {
@@ -51,8 +50,8 @@ const WaterIcon = () => {
 
     return (
         <Pressable style={styles.waterButton} onPress={() => onWaterSwitch()}>
-                <Image source={waterImg} style={{height:"50%", width: "37%", alignItems:"center"}}/>
-                <Text style={{paddingTop:"8%", fontSize: RFPercentage(2.8), fontFamily:"FuturaStd-Condensed"}}>Water</Text>
+                <Image source={waterImg} style={{height:"50%", width: "40%", alignItems:"center"}}/>
+                <Text style={{paddingTop:"12%", fontSize: RFPercentage(3.25), fontFamily:"FuturaStd-Condensed"}}>Water</Text>
         </Pressable>
     );
 };

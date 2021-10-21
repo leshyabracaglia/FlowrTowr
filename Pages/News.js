@@ -17,11 +17,11 @@ const News = ({ navigation }) => {
     <SafeAreaView style={styles.background}>
         <View style={styles.background}>
 
-            <Header navigation={navigation} title={"News"}></Header>
+            <Header navigation={navigation} title={"Blog"}></Header>
 
-            <View style={{width:"90%", paddingLeft:"10%", paddingTop:"10%"}}>
+            <View style={{width:"95%", paddingLeft:"5%", paddingTop:"5%"}}>
                     <View style={{backgroundColor:"rgb(239, 239, 239)", padding:"7%", alignItems:"center", borderTopRightRadius:20}}>
-                        <Text style={{fontSize:RFPercentage(3.8), fontFamily: 'Bodoni 72 Oldstyle'}}>News Coming Soon...</Text>
+                        <Text style={{fontSize:RFPercentage(3.8), fontFamily: 'Bodoni 72 Oldstyle'}}>Blog Coming Soon...</Text>
                     </View>
                     <View style={{backgroundColor:"rgb(245, 245, 245)", padding:"7%", borderBottomLeftRadius:20}}>
                         <Text style={{fontSize:RFPercentage(3)}}>What do you want to hear about?</Text>

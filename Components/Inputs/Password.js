@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     container: {
         borderBottomColor: "white",
         borderBottomWidth: 2.0,
-        height: 70,
+        height: 80,
         flexDirection: "row"
     }
 });

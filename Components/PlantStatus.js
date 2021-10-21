@@ -39,14 +39,6 @@ const PlantStatus = () => {
                 <View style={styles.statusItem}>
                     <Image source={require("../images/humidity.png")} style={styles.image}/>
                     <Text style={styles.textBottom}>Humidity</Text>
-                    <View style={styles.valueEditorBox}>
-                        <ValueEditor value={humidity} 
-                                     color="green" 
-                                     setValue={_setHumidity} 
-                                     modifier="%" 
-                                     change={1}>
-                        </ValueEditor>
-                    </View>
                 </View>
 
                 <View style={styles.statusItem}>
@@ -65,14 +57,6 @@ const PlantStatus = () => {
                 <View style={styles.statusItem}>
                     <Image source={require("../images/ph.png")} style={styles.image}/>
                     <Text style={styles.textTop}>Soil pH</Text>
-                    <View style={styles.valueEditorBox}>
-                        <ValueEditor value={ph} 
-                                     color="green" 
-                                     setValue={_setPh} 
-                                     modifier="" 
-                                     change={0.1}>
-                        </ValueEditor>
-                    </View>
                 </View>
 
         </View>
