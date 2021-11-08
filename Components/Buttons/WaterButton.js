@@ -17,33 +17,41 @@ const WaterIcon = () => {
     let waterOff = require("../../images/water-tap-black.png");
     let waterOn = require("../../images/water-tap.png");
 
-    const [waterColor, setWaterColor] = useState("white");
+    const [waterColor, setWaterColor] = useState("#EACEDC");
     const [waterImg, setWaterImg] = useState(waterOff);
 
     const styles = StyleSheet.create({
         waterButton: {
-            height:"75%",
-            width: "60%",
+            height:"65%",
+            width: "50%",
             backgroundColor: waterColor,
-            paddingTop: "6%",
+            paddingTop: "7%",
             alignItems:"center",
             borderRadius: 15,
             shadowOffset: {
                 width: 0,
                 height: -0
             },
+            marginRight:"30%",
             shadowOpacity: 0.3,
             shadowRadius: 10,
-            shadowColor:"black"
+            shadowColor:"black",
+            marginTop: "15%"
+        },
+        waterText: {
+            paddingTop:"7%", 
+            color: "#0B4D2C",
+            fontSize: RFPercentage(2.3), 
+            fontFamily:"PTSerif-Regular"
         }
     });
 
     function onWaterSwitch() {
-        if(waterColor === "white"){
-            setWaterColor("rgb(37, 169, 236)")
+        if(waterColor === "#EACEDC"){
+            setWaterColor("#18aa61")
             setWaterImg(waterOn);
         }else{
-            setWaterColor("white");
+            setWaterColor("#EACEDC");
             setWaterImg(waterOff);
         }
     }
@@ -51,7 +59,7 @@ const WaterIcon = () => {
     return (
         <Pressable style={styles.waterButton} onPress={() => onWaterSwitch()}>
                 <Image source={waterImg} style={{height:"50%", width: "40%", alignItems:"center"}}/>
-                <Text style={{paddingTop:"12%", fontSize: RFPercentage(3.25), fontFamily:"FuturaStd-Condensed"}}>Water</Text>
+                <Text style={styles.waterText}>Water</Text>
         </Pressable>
     );
 };

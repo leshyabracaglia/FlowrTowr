@@ -52,7 +52,7 @@ const ShopCategoryPage = ({ navigation, route }) => {
                     products.map((product) => {
 
                         return(
-                        <View style={{width:"90%", flexDirection: "row", paddingLeft:"5%", paddingTop:"10%"}}>
+                        <View style={{width:"90%", flexDirection: "row", paddingLeft:"5%", paddingTop:"10%"}} key={product.itemName}>
                             <View style={{width:"40%", backgroundColor:"rgb(239, 239, 239)", padding:"7%", alignItems:"center"}}>
                                 <Image source={require("../images/seed.png")} style={{height:100, width: 100, alignItems:"center"}}/>
                             </View>

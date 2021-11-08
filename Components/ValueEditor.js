@@ -10,14 +10,14 @@ import {
 } from 'react-native';
 
 
-const ValueEditor = ({value, color, setValue, modifier, change}) => {
+const ValueEditor = ({value, color, setValue, modifier, change, image, text}) => {
 
     let _color = {color};
 
-    let plus = require("../images/plus.png");
-    let plusBlack = require("../images/plus-black.png");
-    let minus = require("../images/minus.png");
-    let minusBlack = require("../images/minus-black.png");
+    let plusBlack = require("../images/plus.png");
+    let plus = require("../images/plus_pink.png");
+    let minusBlack = require("../images/minus.png");
+    let minus = require("../images/minus_pink.png");
 
     const [plusImage, setPlusImage] = useState(plus);
     const [minusImage, setMinusImage] = useState(minus);
@@ -46,19 +46,15 @@ const ValueEditor = ({value, color, setValue, modifier, change}) => {
             <Pressable style={{marginTop:"5%"}} onPressIn={onPlus} onPressOut={onPlusOut}>
                 <Image source={plusImage} style={styles.button}/>
             </Pressable>
-            
-            <View style={{flexDirection:"row", alignContent:"center", marginTop:"10%"}}>
-                <View style={styles.statusCircle}></View>
+
+            <View style={{flexDirection:"row", alignContent:"center", marginTop:"20%"}}>
+                <Image source={image} style={styles.image}/>
                 <Text style={styles.text}>{value}{modifier}</Text>
-                {/*
-                <View style={{alignItems:"center"}}>
-                    <Text style={{fontSize: RFPercentage(2.1), color: "red", fontFamily: "MinionPro-CnCapt", paddingLeft: "4%", paddingTop:"1%"}}>Set to: </Text>
-                    <Text style={{fontSize: RFPercentage(2.1), color: "red", fontFamily: "MinionPro-CnCapt"}}>xx</Text>
-                </View>
-                */}
             </View>
 
-            <Pressable style={{marginTop:"10%"}} onPressIn={onMinus} onPressOut={onMinusOut}>
+            <Text style={styles.textTop}>{ text }</Text>
+
+            <Pressable style={{marginTop:"20%"}} onPressIn={onMinus} onPressOut={onMinusOut}>
                 <Image source={minusImage} style={styles.button}/>
             </Pressable>                    
         </View>
@@ -67,24 +63,29 @@ const ValueEditor = ({value, color, setValue, modifier, change}) => {
 };
 
 const styles = StyleSheet.create({
-    statusCircle: {
-        marginTop: "10%",
-        borderRadius: 30,
-        width: 15,
-        height: 15,
-        marginRight:"10%",
-        backgroundColor: "red"
-    },
     button: {
-        height:40, 
-        width:40
+        height:55, 
+        width:55
     }, 
     text: {
-        fontSize:RFPercentage(3.4),
+        fontSize:RFPercentage(3.0),
         alignItems:"center",
-        fontFamily: "FuturaStd-Condensed",
-        paddingTop:"5%"
-    }
+        fontFamily: "Domine-Regular",
+        paddingTop:"5%",
+        paddingLeft:"5%",
+        color: "#EACEDC"
+    },
+    textTop: {
+        fontSize:RFPercentage(2.4), 
+        paddingTop:"10%",
+        fontFamily: "Domine-Regular",
+        color: "#EACEDC"
+    },
+    image: {
+        height:30, 
+        width: 30, 
+        alignItems:"center",
+    },
   });
 
 

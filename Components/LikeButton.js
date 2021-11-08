@@ -8,8 +8,8 @@ import firestore from '@react-native-firebase/firestore';
 
 const LikeButton = ({postId, postData}) => {
 
-    let like = require("../images/like.png");
-    let like_black = require("../images/like-black.png");
+    let like = require("../images/like-green.png");
+    let like_black = require("../images/like-grey.png");
 
     const [likes, setLikes] = useState(0);
     const [didUserLike, setDidUserLike] = useState(false);
@@ -96,13 +96,15 @@ const styles = StyleSheet.create({
     iconStyle: {
         height: 26, 
         width: 26,
-        marginTop: "15%"
+        marginTop: "20%",
+        marginLeft:"2%"
     }, 
     likes: {
-        fontFamily: "MinionPro-CnCapt",
-        fontSize: RFPercentage(2.7),
+        fontFamily: "PTSerif-Regular",
+        fontSize: RFPercentage(2.5),
+        color: "#4c3340",
         paddingLeft: "14%",
-        marginTop: "20%",
+        marginTop: "22%",
     }
 });
 

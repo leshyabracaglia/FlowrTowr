@@ -19,13 +19,13 @@ const Comment = ({navigation, postData, postId}) => {
 const styles = StyleSheet.create({
     commentBox: {
         width:"85%",
-        paddingLeft: "25%",
-        paddingTop: "4%"
+        paddingLeft: "27%",
+        paddingTop: "6%"
     },
     startText: {
-        color: "black",
-        fontSize: RFPercentage(2.7),
-        fontFamily: "MinionPro-CnCapt"
+        fontSize: RFPercentage(2.5),
+        fontFamily: "PTSerif-Regular",
+        color: "#4c3340"
     }
   });
 

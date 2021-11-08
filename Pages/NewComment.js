@@ -12,6 +12,7 @@ import Header from "../Components/Header";
 const NewComment = ({ route, navigation }) => {
 
     const [postId, ] = useState(route.params.postId);
+    const addComment = route.params.addComment;
     const [comment, setComment] = useState("");
 
     function onComment(){
@@ -42,7 +43,9 @@ const NewComment = ({ route, navigation }) => {
                 .update("comments", comments)
                 .then(() => {
                     setComment("");
-                    navigation.navigate("Community");
+                    addComment(data);
+                    //navigation.navigate("Community");
+                    navigation.goBack();
                 })
                 .catch((error) => {
                     alert(error);

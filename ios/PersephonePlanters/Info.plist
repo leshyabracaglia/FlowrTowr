@@ -49,7 +49,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>To share photos of your plants with the Persephone Community</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>To Share videos of your plants with the Persephone Community</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -61,6 +61,12 @@
 		<string>Minion-Pro-Cond-Caption_30612.otf</string>
 		<string>Minion-Pro-Cond.ttf</string>
 		<string>MinionPro-CnCapt.ttf</string>
+		<string>Domine-Regular.ttf</string>
+		<string>PTSerif-Bold.ttf</string>
+		<string>PTSerif-BoldItalic.ttf</string>
+		<string>PTSerif-Italic.ttf</string>
+		<string>PTSerif-Regular.ttf</string>
+		<string>Domine-Regular.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

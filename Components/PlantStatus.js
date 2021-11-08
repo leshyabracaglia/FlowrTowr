@@ -37,15 +37,24 @@ const PlantStatus = () => {
         <View style={styles.statusBar}>
 
                 <View style={styles.statusItem}>
-                    <Image source={require("../images/humidity.png")} style={styles.image}/>
-                    <Text style={styles.textBottom}>Humidity</Text>
+                    <View style={styles.valueEditorBox}>
+                        <ValueEditor 
+                            text="Humidity"
+                            image={require("../images/humidity.png")}
+                            value={humidity} 
+                            color="red" 
+                            setValue={_setHumidity} 
+                            modifier="%" 
+                            change={1}>
+                        </ValueEditor>
+                    </View>
                 </View>
 
                 <View style={styles.statusItem}>
-                    <Image source={require("../images/temperature.png")} style={styles.image}/>
-                    <Text style={styles.textBottom}>Temperature</Text>
                     <View style={styles.valueEditorBox}>
                         <ValueEditor value={temp} 
+                                     text="Temperature"
+                                     image={require("../images/temperature.png")}
                                      color="red" 
                                      setValue={_setTemp} 
                                      modifier="°C" 
@@ -55,8 +64,16 @@ const PlantStatus = () => {
                 </View>
 
                 <View style={styles.statusItem}>
-                    <Image source={require("../images/ph.png")} style={styles.image}/>
-                    <Text style={styles.textTop}>Soil pH</Text>
+                    <View style={styles.valueEditorBox}>
+                        <ValueEditor value={ph} 
+                                     text="Soil pH"
+                                     image={require("../images/ph.png")}
+                                     color="red" 
+                                     setValue={_setPh} 
+                                     modifier="" 
+                                     change={1}>
+                        </ValueEditor>
+                    </View>
                 </View>
 
         </View>
@@ -89,13 +106,18 @@ const styles = StyleSheet.create({
     },
     valueEditorBox: {
         flexDirection:"row", 
-        marginTop:"8%", 
         alignItems:"center"
     },
     image: {
-        height:43, 
-        width: 43, 
+        height:40, 
+        width: 40, 
         alignItems:"center"
+    },
+    text: {
+        fontSize:RFPercentage(3.4),
+        alignItems:"center",
+        fontFamily: "FuturaStd-Condensed",
+        paddingTop:"15%"
     }
   });
 

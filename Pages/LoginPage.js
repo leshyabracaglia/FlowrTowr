@@ -21,7 +21,7 @@ const LoginPage = ({ navigation }) => {
         .then(() =>{
             setEmail("");
             setPassword("");
-            navigation.navigate('Home');  
+            navigation.navigate('HomeBase');  
         }).catch((error)=>{
             setPassword("");
             if(error.code === 'auth/wrong-password'){
@@ -44,16 +44,12 @@ const LoginPage = ({ navigation }) => {
     }
 
     return (
-        <ImageBackground
-            source={require('../images/loginbg.jpeg')}
-            style={styles.background}
-        >
-        <View style={{height:"100%", width:"100%", backgroundColor:"rgba(0, 0, 0, 0.4)"}}>
+        <View style={{height:"100%", width:"100%", backgroundColor:"#062d19"}}>
             <View style={styles.logoBox}>
                 <Text style={styles.logo}>Login</Text>
             </View>
             <View style={styles.loginBox}>
-                <TextInput placeholder="Email" placeholderTextColor="white" keyboardType="email-address" style={styles.textInput} onChangeText={setEmail}></TextInput>
+                <TextInput placeholder="Email" placeholderTextColor="#EACEDC" keyboardType="email-address" style={styles.textInput} onChangeText={setEmail}></TextInput>
                 <PasswordField setPassword={(x) => setPassword(x)}/>
                 <SubmitButton onSubmit={onLoginPress}/>
                 <Pressable onPress={() => navigation.push("Forgot")}>
@@ -61,7 +57,6 @@ const LoginPage = ({ navigation }) => {
                 </Pressable>
             </View>
         </View>
-        </ImageBackground>
     );
 };
 
@@ -73,7 +68,7 @@ const styles = StyleSheet.create({
     },
     logo: {
         textAlign: "center", 
-        color: "white",
+        color: "#EACEDC",
         fontSize: RFPercentage(11),
         fontFamily: 'MinionPro-CnCapt'
     },
@@ -89,20 +84,20 @@ const styles = StyleSheet.create({
     },
     textInput: {
         marginTop: "8%",
-        borderBottomColor: "white",
+        borderBottomColor: "#EACEDC",
         borderBottomWidth: 1.5,
-        color: "white",
+        color: "#EACEDC",
         height: "30%",
-        fontSize: RFPercentage(3.7),
-        paddingLeft: "5%",
-        fontFamily: "FuturaStd-Condensed"
+        fontSize: RFPercentage(3.3),
+        paddingLeft: "1%",
+        fontFamily: 'PTSerif-Italic'
     },
     forgot: {
-        color: "white",
+        color: "#EACEDC",
         fontSize: RFPercentage(3.6),
         textAlign: "center",
         paddingTop:"9%",
-        fontFamily: "FuturaStd-Condensed"
+        fontFamily: 'PTSerif-Regular'
     }
   });
 

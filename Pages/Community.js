@@ -26,11 +26,11 @@ const Community = ({ navigation }) => {
         fontSize: 20
     },
     background: {
-      backgroundColor: "rgb(191, 203, 194)",
+      backgroundColor: "#062d19",
         height: "100%",
     },
     button: {
-      backgroundColor:"rgb(72, 93, 36)",
+      backgroundColor:"#883a61",
       width: "30%",
       padding: "3%",
       textAlign:"center",
@@ -40,17 +40,19 @@ const Community = ({ navigation }) => {
       borderRadius: 5
     },
     buttonText: {
-      color: "white",
+      color: "#EACEDC",
       textAlign:"center",
-      fontSize: RFPercentage(3.0),
-      fontFamily: "MinionPro-CnCapt"
+      fontSize: RFPercentage(2.5),
+      paddingTop: "4%",
+      fontFamily: "Domine-Regular"
 
     },
     textInput: {
       height:height, 
       padding:"4%", 
-      fontFamily: "FuturaStd-Condensed", 
-      fontSize: RFPercentage(3),
+      fontFamily: "PTSerif-Regular", 
+      fontSize: RFPercentage(2.7),
+      backgroundColor: "#EACEDC",
       width:"95%",
     },
     name: {
@@ -89,7 +91,6 @@ const Community = ({ navigation }) => {
   onUpdateImage = () => {
     launchImageLibrary({mediaType:"photo", saveToPhotos: true}, (res) => {
       setImage({uri: res.assets[0].uri});
-      setProfileImage(res.assets[0].uri);
   })
 }
 
@@ -130,8 +131,24 @@ const Community = ({ navigation }) => {
 
   }
 
+  function deletePost(postId){
+
+      firestore().collection('community')
+      .doc(postId)
+      .delete()
+      .then(() => {
+        alert("Post Deleted!");
+        setReload(r=> r+1);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+
+  }
+
   function onCancel(){
     setMessage("");
+    setImage(null);
   }
 
   return (
@@ -139,11 +156,11 @@ const Community = ({ navigation }) => {
         <Header navigation={navigation} title={"Community"}></Header>
         <ScrollView style={styles.background}>
             <View style={{width:"95%", paddingLeft:"5%", paddingTop:"5%"}}>
-              <View style={{backgroundColor:"rgb(239, 239, 239)", paddingTop:"6%", paddingLeft:"3%", alignItems:"center", borderTopRightRadius:20, height:150}}>
+              <View style={{backgroundColor:"#EACEDC", paddingTop:"6%", paddingLeft:"3%", alignItems:"center", borderTopRightRadius:20, height:150}}>
                 <TextInput placeholder="..." placeholderTextColor="black" style={styles.textInput} value={message} multiline={true} onChangeText={setMessage} onContentSizeChange={(e) => updateSize(e.nativeEvent.contentSize.height)}></TextInput>
                 <Image source={image} style={{width: "10%", height:"45%", marginLeft:"75%"}}/>
               </View>
-              <View style={{backgroundColor:"rgb(245, 245, 245)", padding:"3%", borderBottomLeftRadius:20, height: 70, flexDirection:"row"}}>
+              <View style={{backgroundColor:"#c87ea3", padding:"3%", borderBottomLeftRadius:20, height: 70, flexDirection:"row"}}>
                 <Pressable style={styles.button} onPress={() => onCancel()}>
                   <Text style={styles.buttonText}>Cancel</Text>
                 </Pressable>
@@ -160,7 +177,7 @@ const Community = ({ navigation }) => {
             {
               posts ? posts.sort(function(a, b){return b.data().timestamp - a.data().timestamp}).map((documentSnapshot, i) => {
                 return(
-                  <CommunityPost postData={documentSnapshot.data()} id={documentSnapshot.id} key={documentSnapshot.id} navigation={navigation}>
+                  <CommunityPost postData={documentSnapshot.data()} id={documentSnapshot.id} key={documentSnapshot.id} navigation={navigation} deletePost={deletePost}>
                   </CommunityPost>
                 )
             

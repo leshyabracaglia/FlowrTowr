@@ -23,6 +23,13 @@ const PostComments = ({ route, navigation }) => {
     const [postData, ] = useState(route.params.postData);
     const [postId, ] = useState(route.params.postId);
     console.log(postData);
+    const [comments, setComments] = useState(postData.comments)
+
+    function addComment(comment){
+        let c = [...comments];
+        c.push(comment);
+        setComments(c);
+    }
 
     return (
 
@@ -30,14 +37,14 @@ const PostComments = ({ route, navigation }) => {
             <Header navigation={navigation} title={"Comments"}></Header>
             <ScrollView style={{height:"80%"}}>
             {
-            postData.comments.map((comment, i) => {
+            comments.map((comment, i) => {
                 return(
-                    <Comment username={comment.username} comment={comment.comment} ley={i}/>
+                    <Comment username={comment.username} comment={comment.comment} key={i}/>
                 )
             })
             }
             </ScrollView>
-            <Pressable style={styles.commentBox} onPress={() => navigation.navigate("NewComment", {postId: postId})}>
+            <Pressable style={styles.commentBox} onPress={() => navigation.navigate("NewComment", {postId: postId, addComment: addComment})}>
                 <Text style={{fontSize:RFPercentage(2.9)}}>Comment...</Text>
             </Pressable>
         </SafeAreaView>

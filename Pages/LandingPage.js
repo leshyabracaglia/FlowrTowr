@@ -6,6 +6,7 @@ import {
     Pressable,
     View,
     ImageBackground,
+    Image,
     Alert,
   } from 'react-native';
 
@@ -43,7 +44,7 @@ const LandingPage = ({ navigation }) => {
                     photo: null,
                 }
             }
-            navigation.navigate("Home", data);
+            navigation.navigate("HomeBase", data);
         }
     })
 
@@ -100,24 +101,28 @@ const LandingPage = ({ navigation }) => {
     
 
     return (
-        <ImageBackground
-            source={require('../images/loginbg.jpeg')}
-            style={styles.background}
-        >
-        <View style={{height:"100%", width:"100%", backgroundColor:"rgba(0, 0, 0, 0.2)"}}>
+        <View style={{height:"100%", width:"100%", backgroundColor:"#062d19"}}>
 
             <View style={styles.logoBox}>
-                <Text style={styles.logo}>Persephone</Text>
+                <Image 
+                    source={require('../images/logo_horizontal.png')}
+                    style={{width:"90%", alignContent:"center", height:"50%"}}
+                ></Image>
+            </View>
+
+            <View style={{flex: 1}}>
+                {//Placeholder for image
+                }
             </View>
 
             <View style={styles.registerBox}>
                 <Text style={styles.registerText}>Register</Text>
-                <TextInput placeholder="Email" placeholderTextColor="white" style={styles.textInput} onChangeText={setEmail}></TextInput>
+                <TextInput placeholder="Email" placeholderTextColor="#EACEDC" style={styles.textInput} onChangeText={setEmail}></TextInput>
                 <PasswordField setPassword={(x) => setPassword(x)}/>
                 <SubmitButton onSubmit={onRegisterPress}/>
             </View>
                 
-            <View style={{flex:2}}>
+            <View style={{flex:1}}>
                 <Text style={styles.haveAccount}>Already have an account?</Text>
                 <Pressable onPress={() => navigation.navigate("Login")}>
                     <Text style={styles.loginText}>Login</Text>
@@ -125,7 +130,6 @@ const LandingPage = ({ navigation }) => {
             </View>
 
         </View>
-        </ImageBackground>
     );
 };
 
@@ -133,33 +137,35 @@ const styles = StyleSheet.create({
     background: {
         width:"100%", 
         height:"120%",
-        backgroundColor:"rgb(239, 234, 233)"
+        backgroundColor:"#062d19"
     },
     logo: {
         textAlign: "center", 
         color: "white",
-        fontSize: RFPercentage(11),
-        fontFamily: "MinionPro-CnCapt"
+        fontSize: RFPercentage(9),
+        fontFamily: "Domine-Regular"
     },
     logoBox: {
         paddingTop:"15%",
         flex: 1,
+        alignContent: "center",
+        alignItems: "center",
     },
     registerBox: {
         marginLeft: "7%",
         marginRight: "7%",
         padding: "3%",
-        flex: 3,
+        flex: 2,
     },
     textInput: {
-        marginTop: "8%",
-        borderBottomColor: "white",
+        borderBottomColor: "#EACEDC",
         borderBottomWidth: 1.5,
-        color: "white",
+        color: "#EACEDC",
         height: "14%",
-        fontSize: RFPercentage(3.5),
-        paddingLeft: "5%",
-        fontFamily:'FuturaStd-Condensed'
+        paddingTop: "1.5%",
+        fontSize: RFPercentage(3.3),
+        paddingLeft: "1%",
+        fontFamily: 'PTSerif-Italic'
     },
     submitBox: {
         width: "100%",
@@ -176,24 +182,25 @@ const styles = StyleSheet.create({
         marginTop:"6%"
     },
     registerText: {
-        color:"white", 
-        fontSize: RFPercentage(6), 
+        color:"#EACEDC", 
+        fontSize: RFPercentage(5.5), 
         textAlign:"center", 
-        fontFamily:'FuturaStd-Condensed',
+        fontFamily: 'PTSerif-Regular',
+        marginTop: "5%",
         paddingBottom:"2%"
     },
     haveAccount: {
-        color:"white", 
+        color:"#EACEDC", 
         textAlign:"center", 
-        fontSize:RFPercentage(4), 
-        fontFamily: 'FuturaStd-Condensed'
+        fontSize:RFPercentage(3.7), 
+        fontFamily: 'PTSerif-Regular',
     },
     loginText: {
-        color:"white", 
+        color:"#EACEDC", 
         textAlign:"center", 
-        fontSize: RFPercentage(6), 
+        fontSize: RFPercentage(5.6), 
         marginTop:"4%", 
-        fontFamily:"MinionPro-CnCapt"
+        fontFamily: 'Domine-Regular'
     }
   });
 

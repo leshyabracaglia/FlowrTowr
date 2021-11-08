@@ -5,7 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import LandingPage from "./Pages/LandingPage";
-import HomeScreen from "./Pages/HomeScreenBase";
+import HomeScreenBase from "./Pages/HomeScreenBase";
+import HomeScreenUpgraded from "./Pages/HomeScreenUpgraded";
 import Shop from "./Pages/Shop.js";
 import News from "./Pages/News.js";
 import Community from "./Pages/Community.js";
@@ -35,8 +36,12 @@ const App = () => {
           component={LandingPage}
         />
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+          name="HomeBase"
+          component={HomeScreenBase}
+        />
+        <Stack.Screen
+          name="HomeUpdated"
+          component={HomeScreenUpgraded}
         />
         <Stack.Screen
           name="Blog"

@@ -26,7 +26,7 @@ const PasswordField = ({ setPassword }) => {
         <View style={styles.container}>
             <TextInput 
                 placeholder="Password" 
-                placeholderTextColor="white" 
+                placeholderTextColor="#EACEDC" 
                 style={styles.textInput} 
                 onChangeText={setPassword} 
                 secureTextEntry={isHidden}
@@ -47,23 +47,23 @@ const PasswordField = ({ setPassword }) => {
 
 const styles = StyleSheet.create({
     textInput: {
-        marginTop: "8%",
-        color: "white",
+        color: "#EACEDC",
         height: 50,
-        fontSize: RFPercentage(3.7),
-        paddingLeft: "5%",
-        fontFamily: "FuturaStd-Condensed",
+        fontSize: RFPercentage(3.3),
+        paddingLeft: "1%",
+        paddingTop: "1.5%",
+        fontFamily: 'PTSerif-Italic',
         display:"flex",
         width: "85%",
     },
     eyeIcon: {
         width:60,
-        marginTop:"10%"
+        marginTop:"4%"
     },
     container: {
-        borderBottomColor: "white",
+        borderBottomColor: "#EACEDC",
         borderBottomWidth: 2.0,
-        height: 80,
+        height: 50,
         flexDirection: "row"
     }
 });

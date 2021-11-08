@@ -15,39 +15,41 @@ const LightButton = () => {
     let lightBulbOff = require("../../images/light-bulb.png");
     let lightBulbOn = require("../../images/light-bulb-on.png")
 
-    const [lightColor, setLightColor] = useState("white");
+    const [lightColor, setLightColor] = useState("#EACEDC");
     const [lightImg, setLightImg] = useState(lightBulbOff);
 
     const styles = StyleSheet.create({
         lightButton: {
-            height:"75%",
-            width: "60%",
-            marginLeft:"5%",
+            height:"65%",
+            width: "50%",
+            marginLeft:"30%",
             backgroundColor: lightColor,
-            paddingTop: "6%",
+            paddingTop: "7%",
             alignItems:"center",
             borderRadius: 15,
             shadowOffset: {
                 width: 0,
                 height: -0
             },
-            shadowOpacity: 0.3,
+            shadowOpacity: 0.4,
             shadowRadius: 10,
-            shadowColor:"black"
+            shadowColor: "#0B4D2C",
+            marginTop: "15%"
         },
         lightText: {
-            paddingTop:"12%", 
-            fontSize: RFPercentage(3.25), 
-            fontFamily:"FuturaStd-Condensed"
+            paddingTop:"7%", 
+            fontSize: RFPercentage(2.2), 
+            fontFamily:"PTSerif-Regular",
+            color: "#0B4D2C"
         }
     });
 
     function onLightSwitch() {
-        if(lightColor === "white"){
-            setLightColor("rgb(37, 169, 236)")
+        if(lightColor === "#EACEDC"){
+            setLightColor("#18aa61")
             setLightImg(lightBulbOn);
         }else{
-            setLightColor("white");
+            setLightColor("#EACEDC");
             setLightImg(lightBulbOff);
         }
     }

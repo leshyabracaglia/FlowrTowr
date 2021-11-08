@@ -1,12 +1,8 @@
 import React from 'react';
-import { RFPercentage } from "react-native-responsive-fontsize";
 
-import {
-  StyleSheet,
-  Text,
-  Pressable,
-  View,
-} from 'react-native';
+import { StyleSheet, Text, Pressable, View } from 'react-native';
+
+import { RFPercentage } from "react-native-responsive-fontsize";
 
 
 const SubmitButton = ({ onSubmit }) => {
@@ -17,7 +13,7 @@ const SubmitButton = ({ onSubmit }) => {
             {
                 backgroundColor: pressed
                     ? 'rgb(13, 59, 102)'
-                    : 'white'
+                    : '#EACEDC'
             },
             styles.submitBox
         ]} onPress={() => onSubmit()}>
@@ -32,17 +28,16 @@ const SubmitButton = ({ onSubmit }) => {
 const styles = StyleSheet.create({
     submitBox: {
         width: "100%",
-        marginTop: "15%",
+        marginTop: "10%",
         borderRadius: 5,
-        height:60,
+        height:50,
     },
     submitText: {
-        fontFamily: 'MinionPro-CnCapt',
+        fontFamily: 'Domine-Regular',
         color:"black", 
-        fontSize: RFPercentage(3.7), 
+        fontSize: RFPercentage(3.2), 
         textAlign:"center", 
-        fontFamily:'FuturaStd-Condensed', 
-        marginTop:"6%",
+        marginTop:"3.8%",
     }
 });
 

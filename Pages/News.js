@@ -20,11 +20,11 @@ const News = ({ navigation }) => {
             <Header navigation={navigation} title={"Blog"}></Header>
 
             <View style={{width:"95%", paddingLeft:"5%", paddingTop:"5%"}}>
-                    <View style={{backgroundColor:"rgb(239, 239, 239)", padding:"7%", alignItems:"center", borderTopRightRadius:20}}>
-                        <Text style={{fontSize:RFPercentage(3.8), fontFamily: 'Bodoni 72 Oldstyle'}}>Blog Coming Soon...</Text>
+                    <View style={{backgroundColor:"#c87ea3", padding:"5%", alignItems:"center", borderTopRightRadius:20}}>
+                        <Text style={{fontSize:RFPercentage(3.3), fontFamily: 'PTSerif-Regular'}}>Blog Coming Soon...</Text>
                     </View>
-                    <View style={{backgroundColor:"rgb(245, 245, 245)", padding:"7%", borderBottomLeftRadius:20}}>
-                        <Text style={{fontSize:RFPercentage(3)}}>What do you want to hear about?</Text>
+                    <View style={{backgroundColor:"#fcf8fa", padding:"6%", backgroundColor: "#EACEDC", borderBottomLeftRadius:20}}>
+                        <Text style={{fontSize:RFPercentage(2.6), fontFamily: "PTSerif-Regular"}}>What do you want to hear about?</Text>
                     </View>
                 </View><View style={{paddingLeft: "4%", paddingTop: "3%"}}>
             </View>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     background: {
-        backgroundColor: "rgb(191, 203, 194)",
+        backgroundColor: "#062d19",
         height: "100%"
     },
   });

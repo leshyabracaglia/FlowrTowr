@@ -7,22 +7,28 @@ const BottomNavBar = ({ navigation }) => {
 
   return (
         <View style={styles.navBar}>
-            <Pressable onPress={() => navigation.push("Community")} style={{alignContent:"center", alignItems:"center", width:"33%"}}>
-                <View style={styles.navItem}>
-                    <Image source={require("../images/blog.png")} style={styles.icon}/>
-                    <Text style={styles.navText}>Community</Text>
-                </View>
-            </Pressable>
-            <Pressable onPress={() => navigation.push("Blog")} style={{alignContent:"center", alignItems:"center", width:"33%"}}>
+            <Pressable onPress={() => navigation.push("Blog")} style={styles.navItemPressable}>
                 <View style={styles.navItem}>
                     <Image source={require("../images/news.png")} style={styles.icon}/>
                     <Text style={styles.navText}>Blog</Text>
                 </View>
             </Pressable>
-            <Pressable onPress={() => navigation.push("Shop")} style={{alignContent:"center", alignItems:"center", width:"33%"}}>
+            <Pressable onPress={() => navigation.push("Community")} style={styles.navItemPressable}>
+                <View style={styles.navItem}>
+                    <Image source={require("../images/blog.png")} style={styles.icon}/>
+                    <Text style={styles.navText}>Community</Text>
+                </View>
+            </Pressable>
+            <Pressable onPress={() => navigation.push("Shop")} style={styles.navItemPressable}>
                 <View style={styles.navItem}>
                     <Image source={require("../images/shop.png")} style={styles.icon}/>
                     <Text style={styles.navText}>Shop</Text>
+                </View>
+            </Pressable>
+            <Pressable onPress={() => navigation.push("Profile")} style={styles.navItemPressable}>
+                <View style={styles.navItem}>
+                    <Image source={require("../images/profile.png")} style={styles.icon}/>
+                    <Text style={styles.navText}>Profile</Text>
                 </View>
             </Pressable>
         </View>
@@ -31,28 +37,33 @@ const BottomNavBar = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     navBar: {
-        backgroundColor: "rgb(252, 255, 253)",
-        width: "93%",
-        height: "13%",
+        backgroundColor: "#EACEDC",
+        width: "101%",
+        height: "11%",
         position: "absolute",
-        marginLeft:"3%",
-        bottom: "1.6%",
+        bottom: "0%",
         flexDirection: "row",
         alignContent:"center",
-        borderRadius: 0,
         shadowOffset: {
             width: 0,
             height: 0
         },
         shadowOpacity: 0.3,
         shadowRadius: 5,
-        shadowColor:"black"
+        shadowColor:"black",
     },
     navItem: {
-        width: "100%",
+        width: "102.5%",
         height:"100%",
-        paddingTop: "17%",
+        paddingTop: "8%",
         alignItems:"center",
+        borderWidth: 1.5,
+        borderColor: "#daa9c2"
+    },
+    navItemPressable: {
+        alignContent:"center", 
+        alignItems:"center", 
+        width:"25%"
     },
     icon: {
         height:35, 
@@ -60,11 +71,12 @@ const styles = StyleSheet.create({
         alignItems:"center"
     },
     navText:{
-        fontSize: RFPercentage(2.7),
-        fontFamily: 'MinionPro-CnCapt',
+        fontSize: RFPercentage(2.2),
+        fontFamily: 'Domine-Regular',
         color: "rgb(72, 93, 36)",
-        paddingTop: "7%",
-        textAlign: "center"
+        paddingTop: "5%",
+        textAlign: "center",
+        color: "#0B4D2C",
     }
   });
 
